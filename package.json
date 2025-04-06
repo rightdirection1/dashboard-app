@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "build": "prisma generate && next build",
-    "vercel-build": "prisma generate && next build"
+    "vercel-build": "prisma generate && next build",
+    "deploy": "prisma migrate reset && vercel --prod"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.15.0",
