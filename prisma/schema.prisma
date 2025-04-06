@@ -7,8 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Button {
-  id    String @id @default(uuid())
+model dashboard {
+  id    String  @id(map: "Button_pkey") @default(uuid())
   title String
   url   String?
   color String

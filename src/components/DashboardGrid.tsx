@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import DashboardItem from "./DashboardItem";
 import { ButtonData } from "@/types/buttonData";
-import { gridButtons } from "@/utils/gridButtons";
+import { gridDashboard } from "@/utils/gridDashboard";
 import styles from "./DashboardGrid.module.css";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const DashboardGrid: React.FC<Props> = ({ buttons, onDelete }) => {
-  const processedButtons: ButtonData[] = gridButtons(buttons);
+  const processedButtons: ButtonData[] = gridDashboard(buttons);
 
   return (
     <div className={styles.grid}>

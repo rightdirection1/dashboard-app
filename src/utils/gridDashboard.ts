@@ -1,11 +1,11 @@
 import { ButtonData } from "@/types/buttonData";
 
-export const gridButtons = (buttons: ButtonData[]) => {
+export const gridDashboard = (dashboards: ButtonData[]) => {
   return Array(9)
     .fill(null)
     .map((_, index) => {
       return (
-        buttons[index] || {
+        dashboards[index] || {
           id: index + 1,
           color: "#ccc",
           url: "",
