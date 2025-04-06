@@ -20,6 +20,7 @@ export default function ButtonForm() {
   });
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
+  const [errorMesssage, setErrorMessage] = useState<string>();
   const router = useRouter();
   const { id } = router.query;
 
@@ -48,7 +49,26 @@ export default function ButtonForm() {
   }, [id, router.isReady]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (name === "url" && value === "") {
+      setErrorMessage("");
+    }
     setButton({ ...button, [e.target.name]: e.target.value });
+
+    if (name === "url") {
+      validateUrl(value);
+    }
+  };
+
+  const validateUrl = (url: string) => {
+    const urlPattern = /^www\.[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+
+    if (url && !urlPattern.test(url)) {
+      setErrorMessage("Invalid URL format. Please enter a valid URL.");
+    } else {
+      setErrorMessage(""); // Clear error when the URL is valid
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -104,6 +124,7 @@ export default function ButtonForm() {
           required
           placeholder="Enter button link"
         />
+        {errorMesssage && <p className={styles.error}>{errorMesssage}</p>}
         <SubmitButton label={id ? "Update" : "Create"} />
       </form>
     </div>
