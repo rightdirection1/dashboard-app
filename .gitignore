@@ -17,6 +17,16 @@
 /.next/
 /out/
 
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+
+prisma/dev.db
+prisma/dev.db-journal
+
+
 # production
 /build
 
