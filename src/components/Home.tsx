@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import DashboardGrid from "./DashboardGrid";
 import { ButtonData } from "@/types/buttonData";
-import "./Home.css";
+import styles from "./Home.module.css";
 
 interface HomeProps {
   initialButtons: ButtonData[];
@@ -31,7 +31,7 @@ export default function Home({ initialButtons }: HomeProps) {
   }, []);
 
   return (
-    <div className="dashboard-container">
+    <div className={styles["dashboard-container"]}>
       <h1>Dashboards</h1>
       <DashboardGrid buttons={buttons} onDelete={handleDelete} />
     </div>

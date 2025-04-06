@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-import { FaEdit, FaTrash } from "react-icons/fa"; // Importing icons from react-icons
-import "./DashboardActions.css";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import styles from "./DashboardActions.module.css";
 
 interface Props {
   id: string;
@@ -19,21 +19,24 @@ export default function DashboardActions({ id, onDelete }: Props) {
   };
 
   return (
-    <div className="button-actions">
+    <div className={styles["button-actions"]}>
       <Link href={`/edit/${id}`}>
-        <button className="edit-button">
+        <button className={styles["edit-button"]}>
           <FaEdit />
         </button>
       </Link>
 
-      <button className="delete-button" onClick={() => setShowPopup(true)}>
+      <button
+        className={styles["delete-button"]}
+        onClick={() => setShowPopup(true)}
+      >
         <FaTrash />
       </button>
 
       {showPopup && (
-        <div className="popup">
+        <div className={styles.popup}>
           <p>Are you sure you want to delete this dashboard?</p>
-          <div className="popup-actions">
+          <div className={styles["popup-actions"]}>
             <button onClick={handleDelete}>Yes</button>
             <button onClick={() => setShowPopup(false)}>No</button>
           </div>
@@ -41,7 +44,7 @@ export default function DashboardActions({ id, onDelete }: Props) {
       )}
 
       {successMessage && (
-        <div className="success-message">{successMessage}</div>
+        <div className={styles["success-message"]}>{successMessage}</div>
       )}
     </div>
   );

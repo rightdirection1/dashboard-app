@@ -1,5 +1,5 @@
 import React from "react";
-import "./ColorPicker.css";
+import styles from "./ColorPicker.module.css";
 
 interface ColorPickerProps {
   label: string;
@@ -14,7 +14,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   value,
   onChange,
 }) => (
-  <div className="form-group">
+  <div className={styles["form-group"]}>
     <label>{label}</label>
     <input type="color" name={name} value={value} onChange={onChange} />
   </div>

@@ -1,7 +1,7 @@
 import DashboardButton from "./DashboardButton";
 import DashboardActions from "./DashboardActions";
-import "./DashboardItem.css";
 import { ButtonData } from "@/types/buttonData";
+import styles from "./DashboardItem.module.css";
 
 interface Props {
   button: ButtonData;
@@ -10,7 +10,7 @@ interface Props {
 
 export default function DashboardItem({ button, onDelete }: Props) {
   return (
-    <div className="grid-item">
+    <div className={styles.gridItem}>
       <DashboardButton button={button} />
       {button.url && <DashboardActions id={button.id} onDelete={onDelete} />}
     </div>

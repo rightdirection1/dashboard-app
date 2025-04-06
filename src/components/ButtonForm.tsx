@@ -4,7 +4,7 @@ import InputField from "./InputField";
 import ColorPicker from "./ColorPicker";
 import SubmitButton from "./SubmitButton";
 import LoadingIndicator from "./LoadingIndicator";
-import "./ButtonForm.css"; // Importing plain CSS file
+import styles from "./ButtonForm.module.css";
 
 interface ButtonData {
   title: string;
@@ -75,9 +75,11 @@ export default function ButtonForm() {
   if (loading) return <LoadingIndicator />;
 
   return (
-    <div className="form-container">
-      <h1 className="form-title">{id ? "Edit Button" : "Create New Button"}</h1>
-      <form onSubmit={handleSubmit} className="button-form">
+    <div className={styles.formContainer}>
+      <h1 className={styles.formTitle}>
+        {id ? "Edit Button" : "Create New Button"}
+      </h1>
+      <form onSubmit={handleSubmit} className={styles.buttonForm}>
         <InputField
           label="Title"
           type="text"

@@ -1,8 +1,8 @@
-import "./LoadingIndicator.css";
+import styles from "./LoadingIndicator.module.css";
 
 const LoadingIndicator = () => (
-  <div className="loading-wrapper">
-    <div className="spinner" />
+  <div className={styles["loading-wrapper"]}>
+    <div className={styles.spinner} />
     <span>Loading...</span>
   </div>
 );

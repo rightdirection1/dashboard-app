@@ -1,13 +1,13 @@
 // SubmitButton.tsx
 import React from "react";
-import "./SubmitButton.css";
+import styles from "./SubmitButton.module.css";
 
 interface SubmitButtonProps {
   label: string;
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ label }) => (
-  <button type="submit" className="submit-button">
+  <button type="submit" className={styles["submit-button"]}>
     {label}
   </button>
 );

@@ -74,6 +74,7 @@
   position: absolute;
   top: 30%;
   left: 50%;
+  z-index: 1;
   transform: translateX(-50%);
   background-color: white;
   padding: 10px 20px;

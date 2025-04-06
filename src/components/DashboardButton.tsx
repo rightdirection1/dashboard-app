@@ -2,6 +2,7 @@
 import { useRouter } from "next/router";
 import { FaPlus } from "react-icons/fa";
 import { ButtonData } from "@/types/buttonData";
+import styles from "./DashboardButton.module.css";
 
 interface Props {
   button: ButtonData;
@@ -27,14 +28,14 @@ export default function DashboardButton({ button }: Props) {
 
   return (
     <button
-      className="dashboard-button"
+      className={styles["dashboard-button"]}
       style={{ backgroundColor: button.color }}
       onClick={() => navigateDashboard()}
     >
       {button.url ? (
-        <span className="button-title">{button.title}</span>
+        <span className={styles["button-title"]}>{button.title}</span>
       ) : (
-        <div className="empty-slot">
+        <div className={styles["empty-slot"]}>
           <FaPlus size={20} />
         </div>
       )}
