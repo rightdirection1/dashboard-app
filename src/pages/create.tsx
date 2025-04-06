@@ -1,5 +1,5 @@
-import ButtonForm from "@/components/ButtonForm";
+import DashboardForm from "@/components/DashboardForm";
 
 export default function CreateButtonPage() {
-  return <ButtonForm />;
+  return <DashboardForm />;
 }

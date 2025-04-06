@@ -4,7 +4,7 @@ import InputField from "./InputField";
 import ColorPicker from "./ColorPicker";
 import SubmitButton from "./SubmitButton";
 import LoadingIndicator from "./LoadingIndicator";
-import styles from "./ButtonForm.module.css";
+import styles from "./DashboardForm.module.css";
 
 interface ButtonData {
   title: string;
@@ -12,7 +12,7 @@ interface ButtonData {
   url: string;
 }
 
-export default function ButtonForm() {
+export default function DashboardForm() {
   const [button, setButton] = useState<ButtonData>({
     title: "",
     color: "#000000",
@@ -97,7 +97,7 @@ export default function ButtonForm() {
   return (
     <div className={styles.formContainer}>
       <h1 className={styles.formTitle}>
-        {id ? "Edit Button" : "Create New Button"}
+        {id ? "Edit Dashboard" : "Create New Dashboard"}
       </h1>
       <form onSubmit={handleSubmit} className={styles.buttonForm}>
         <InputField
@@ -107,7 +107,7 @@ export default function ButtonForm() {
           value={button.title}
           onChange={handleChange}
           required
-          placeholder="Enter button title"
+          placeholder="Enter dashboard title"
         />
         <ColorPicker
           label="Color"
@@ -122,7 +122,7 @@ export default function ButtonForm() {
           value={button.url}
           onChange={handleChange}
           required
-          placeholder="Enter button link"
+          placeholder="Enter dashboard link"
         />
         {errorMesssage && <p className={styles.error}>{errorMesssage}</p>}
         <SubmitButton label={id ? "Update" : "Create"} />
